@@ -28,7 +28,7 @@ public class Category extends BaseEntity{
 
     private Long index;
 
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "coupon")
-//    private List<Coupon> c
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "coupon")
+    private List<Coupon> couponList;
 }
