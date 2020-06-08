@@ -1,0 +1,25 @@
+server:
+  port: 80
+
+
+spring:
+
+#  连接数据库
+  datasource:
+    url: jdbc:mysql://localhost:3306/sleeve?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+
+ #  打印jpa sql语句
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+# jwt 配置
+sleeve:
+  security:
+    jwt-key: mxh13920
+    token-expired-in: 720000

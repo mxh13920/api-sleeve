@@ -1,0 +1,27 @@
+sleeve:
+  perfix: com.meng.sleeve.api
+
+spring:
+  #  配合开发环境
+  profiles:
+    active: dev
+
+  #jap设置
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+  #      设置返回json格式为 "Banner_id" 格式
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    #    设置序列化时间为时间搓 ms（毫毛）
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
+#  mvc:
+#    static-path-pattern: /static/**
+
+wx:
+  appid: wxf017ebb43cb62d09
+  appsecret: 5d9f9a9cccfd20975bc55a85b97613d4
+  code2Session: https://api.weixin.qq.com/sns/jscode2session?appid={0}&secret={1}&js_code={2}&grant_type=authorization_code
+
