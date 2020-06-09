@@ -18,6 +18,7 @@ public class Activity extends BaseEntity{
     private String title;
     private String description;
     private Date startTime;
+    private Date endTime;
     private String remark;
     private Boolean online;
     private String entranceImg;
