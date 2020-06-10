@@ -1,13 +1,16 @@
 package com.meng.sleeve.core.interceptors;
 
 import com.auth0.jwt.interfaces.Claim;
+import com.meng.sleeve.core.LocalUser;
 import com.meng.sleeve.core.annotations.ScopeLevel;
 import com.meng.sleeve.exception.http.ForbiddenException;
 import com.meng.sleeve.exception.http.UnAuthenticatedException;
+import com.meng.sleeve.model.User;
+import com.meng.sleeve.service.UserService;
 import com.meng.sleeve.utils.JwtToken;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +19,9 @@ import java.util.Map;
 import java.util.Optional;
 
 public class PermissionInterceptor extends HandlerInterceptorAdapter {
+
+    @Autowired
+    private UserService userService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -44,7 +50,17 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
         Map<String, Claim> stringClaimMap = claim.orElseThrow(() -> new UnAuthenticatedException(10004));
 
         boolean validat = this.hasPermission(scopeLevel.get(), claim.get());
+        if(validat){
+            this.setToThreadLocal(stringClaimMap);
+        }
         return validat;
+    }
+
+    private void setToThreadLocal(Map<String,Claim> map) {
+        Long uid = map.get("uid").asLong();
+        Integer scope = map.get("scope").asInt();
+        User user = this.userService.getUserById(uid);
+        LocalUser.set(user, scope);
     }
 
     //    判断权限是否足够
@@ -58,17 +74,24 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
     }
 
 
+
+
     //    获取注解
     private Optional<ScopeLevel> getScopeLevel(Object handler) {
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             ScopeLevel annotation = handlerMethod.getMethod().getAnnotation(ScopeLevel.class);
             if (annotation == null) {
-            return Optional.empty();
+                return Optional.empty();
             }
             return Optional.of(annotation);
         }
         return Optional.empty();
 
+    }
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        LocalUser.clear();
+        super.afterCompletion(request, response, handler, ex);
     }
 }

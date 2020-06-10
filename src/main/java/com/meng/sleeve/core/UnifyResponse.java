@@ -1,5 +1,6 @@
 package com.meng.sleeve.core;
 
+import com.meng.sleeve.exception.CreateSuccess;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
@@ -15,5 +16,9 @@ public class UnifyResponse {
         this.code = code;
         this.message = message;
         this.request = request;
+    }
+
+    public static void createSuccess(int code) {
+        throw new CreateSuccess(code);
     }
 }

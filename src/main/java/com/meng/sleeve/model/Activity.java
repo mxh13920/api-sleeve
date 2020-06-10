@@ -16,14 +16,15 @@ public class Activity extends BaseEntity{
     @Id
     private Long id;
     private String title;
+    private String name;
     private String description;
+    //    private Long activityCoverId;
     private Date startTime;
     private Date endTime;
-    private String remark;
     private Boolean online;
     private String entranceImg;
     private String internalTopImg;
-    private String name;
+    private String remark;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name="activityId")

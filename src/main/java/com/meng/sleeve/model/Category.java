@@ -14,16 +14,22 @@ import java.util.Objects;
 public class Category extends BaseEntity {
     @Id
     private Long id;
+
     private String name;
+
     private String description;
+
     private Boolean isRoot;
-    private Integer parentId;
+
     private String img;
-    private Integer index;
-    private Integer online;
-    private Integer level;
+
+    private Long parentId;
+
+    private Long index;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "coupon_category")
+    @JoinTable(name = "coupon_category",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "coupon_id"))
     private List<Coupon> couponList;
 }

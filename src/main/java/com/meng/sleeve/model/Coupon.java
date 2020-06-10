@@ -24,9 +24,8 @@ public class Coupon extends BaseEntity{
     private BigDecimal minus;
     private BigDecimal rate;
     private String remark;
-    private Integer type;
-    private Integer valitiy;
     private Boolean wholeStore;
+    private Integer type;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "couponList")
     private List<Category> categoryList;

@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -15,10 +16,13 @@ import java.util.Objects;
 public class UserCoupon extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int userId;
-    private int couponId;
-    private byte status;
+    private Long id;
+    private Long userId;
+    private Long couponId;
+    private Long orderId;
+    private Integer status;
+    private Date createTime;
+    private Date updateTime;
 
 
 }
