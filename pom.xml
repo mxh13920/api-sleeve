@@ -11,7 +11,7 @@
     <groupId>com.meng</groupId>
     <artifactId>sleeve</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-<!--    <packaging>war</packaging>-->
+    <!--    <packaging>war</packaging>-->
     <name>sleeve</name>
     <description>Demo project for Spring Boot</description>
 
@@ -24,13 +24,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-<!--            设置为war-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.springframework.boot</groupId>-->
-<!--                    <artifactId>spring-boot-starter-tomcat</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
+            <!--            设置为war-->
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.springframework.boot</groupId>-->
+            <!--                    <artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -42,10 +42,9 @@
             <artifactId>tomcat-servlet-api</artifactId>
             <version>7.0.42</version>
             <scope>provided</scope>
+
         </dependency>
-<!--                                                -->
-
-
+        <!--                                                -->
 
 
         <dependency>
@@ -88,9 +87,9 @@
 
         <!--  模板渲染-->
         <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-thymeleaf</artifactId>
-                </dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
 
         <!--属性烤被（深烤被）-->
         <dependency>
@@ -106,6 +105,33 @@
             <version>3.8.1</version>
         </dependency>
 
+        <!--        微信支付依赖-->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.slf4j</groupId>-->
+<!--            <artifactId>slf4j-simple</artifactId>-->
+<!--            <version>1.7.21</version>-->
+<!--        </dependency>-->
+        <!--        &#45;&#45;-->
+
+        <!--        redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -118,8 +144,6 @@
                     <warName>springboot</warName>
                 </configuration>
             </plugin>
-
-
 
 
             <plugin>
