@@ -48,15 +48,13 @@ public class CouponService {
 
         Date now = new Date();
         Boolean isIn = CommonUtils.isInTimeLine(now, activity.getStartTime(), activity.getEndTime());
-        if (!isIn) {
+        if(!isIn){
             throw new ParameterException(40005);
         }
 
         this.userCouponRepository
                 .findFirstByUserIdAndCouponId(uid, couponId)
-                .ifPresent((uc) -> {
-                    throw new ParameterException(40006);
-                });
+                .ifPresent((uc) -> {throw new ParameterException(40006);});
 
         UserCoupon userCouponNew = UserCoupon.builder()
                 .userId(uid)

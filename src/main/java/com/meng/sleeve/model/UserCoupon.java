@@ -13,7 +13,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserCoupon extends BaseEntity{
+public class UserCoupon{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
