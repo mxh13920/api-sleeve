@@ -1,5 +1,6 @@
 sleeve:
   perfix: com.meng.sleeve.api
+  year-codes: A,B,C,D,E,F,G,H,I,J,K
 
 spring:
   #  配合开发环境
@@ -10,6 +11,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+    open-in-view: true
+
+  thymeleaf:
+    check-template-location: false
+
 
   #      设置返回json格式为 "Banner_id" 格式
   jackson:

@@ -23,3 +23,6 @@ sleeve:
   security:
     jwt-key: mxh13920
     token-expired-in: 720000
+  order:
+    max-sku-limit: 99991
+    pay-time-limit: 3600

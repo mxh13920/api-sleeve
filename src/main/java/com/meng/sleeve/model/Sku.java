@@ -1,11 +1,13 @@
 package com.meng.sleeve.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.meng.sleeve.utils.GenericAndJson;
 import com.meng.sleeve.utils.ListAndJson;
 import com.meng.sleeve.utils.MapAndJson;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,10 +16,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Entity
 @Setter
 @Getter
+@Where(clause = "delete_time is null and online = 1")
 public class Sku extends BaseEntity{
     @Id
     private Long id;
@@ -34,6 +38,10 @@ public class Sku extends BaseEntity{
 
     private String specs;
 
+    public BigDecimal getActualPrice(){
+       return this.discountPrice!=null?this.discountPrice:this.price;
+    }
+
     public List<Spec> getSpecs() {
         if (this.specs == null) {
             return Collections.emptyList();
@@ -47,9 +55,10 @@ public class Sku extends BaseEntity{
         }
         this.specs = GenericAndJson.objectToJson(specs);
     }
-//    @Convert(converter = ListAndJson.class)
-//    private List<Object> specs;
 
-//    @Convert(converter = MapAndJson.class)
-//    private Map<String,Objects> test;
+    @JsonIgnore
+    public List<String> getSpecValueList() {
+        return this.getSpecs().stream().map(Spec::getValue).collect(Collectors.toList());
+    }
+
 }

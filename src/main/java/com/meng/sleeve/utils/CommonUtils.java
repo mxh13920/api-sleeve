@@ -3,6 +3,7 @@ package com.meng.sleeve.utils;
 import com.meng.sleeve.bo.PageCount;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class CommonUtils {
@@ -14,6 +15,11 @@ public class CommonUtils {
                 .count(count)
                 .build();
         return build;
+    }
+
+    public static Calendar addSomeSecond(Calendar calendar,Integer second){
+        calendar.add(Calendar.SECOND,second);
+        return calendar;
     }
 
     public static Boolean isInTimeLine(Date date, Date start, Date end) {
