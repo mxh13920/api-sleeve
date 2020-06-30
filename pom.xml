@@ -11,7 +11,7 @@
     <groupId>com.meng</groupId>
     <artifactId>sleeve</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <!--    <packaging>war</packaging>-->
+    <packaging>jar</packaging>
     <name>sleeve</name>
     <description>Demo project for Spring Boot</description>
 
@@ -32,18 +32,17 @@
             <!--                </exclusion>-->
             <!--            </exclusions>-->
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-servlet-api</artifactId>
-            <version>7.0.42</version>
-            <scope>provided</scope>
-
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.tomcat</groupId>-->
+<!--            <artifactId>tomcat-servlet-api</artifactId>-->
+<!--            <version>7.0.42</version>-->
+<!--            <scope>provided</scope-->
+<!--        </dependency>-->
         <!--                                                -->
 
 
@@ -126,10 +125,10 @@
         <!--        &#45;&#45;-->
 
         <!--        redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
+<!--        </dependency>-->
 
 
     </dependencies>
