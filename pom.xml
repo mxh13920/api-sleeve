@@ -11,7 +11,7 @@
     <groupId>com.meng</groupId>
     <artifactId>sleeve</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <!--    <packaging>war</packaging>-->
     <name>sleeve</name>
     <description>Demo project for Spring Boot</description>
 
@@ -42,9 +42,10 @@
             <artifactId>tomcat-servlet-api</artifactId>
             <version>7.0.42</version>
             <scope>provided</scope>
-
         </dependency>
         <!--                                                -->
+
+
 
 
         <dependency>
@@ -105,56 +106,21 @@
             <version>3.8.1</version>
         </dependency>
 
-        <!--        微信支付依赖-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.httpcomponents</groupId>-->
-<!--            <artifactId>httpclient</artifactId>-->
-<!--            <version>4.5.3</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-api</artifactId>-->
-<!--            <version>1.7.21</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-simple</artifactId>-->
-<!--            <version>1.7.21</version>-->
-<!--        </dependency>-->
-        <!--        &#45;&#45;-->
-
-        <!--        redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-
-
     </dependencies>
 
     <build>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-war-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <warSourceExcludes>src/main/resources/**</warSourceExcludes>-->
-<!--                    <warName>springboot</warName>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                    <encoding>UTF-8</encoding>
+                    <warSourceExcludes>src/main/resources/**</warSourceExcludes>
+                    <warName>springboot</warName>
                 </configuration>
             </plugin>
+
+
+
 
             <plugin>
                 <groupId>org.springframework.boot</groupId>
